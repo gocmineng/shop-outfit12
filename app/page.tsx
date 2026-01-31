@@ -1,6 +1,8 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import ProductCard from "./components/ProductCard";
+import InfiniteMarquee from "./components/InfiniteMarquee";
+import WhyChooseUs from "./components/WhyChooseUs";
 import { products } from "./data/products";
 
 export default function Home() {
@@ -9,6 +11,8 @@ export default function Home() {
       <Navbar />
 
       <Hero />
+
+      <InfiniteMarquee />
 
       <section className="py-24 px-6 max-w-7xl mx-auto">
         <div className="flex items-end justify-between mb-12">
@@ -33,6 +37,8 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      <WhyChooseUs />
 
       {/* Simple Footer */}
       <footer className="py-12 border-t border-gray-100 bg-gray-50/50 text-center">
