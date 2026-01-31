@@ -3,6 +3,7 @@ import Hero from "./components/Hero";
 import ProductCard from "./components/ProductCard";
 import InfiniteMarquee from "./components/InfiniteMarquee";
 import WhyChooseUs from "./components/WhyChooseUs";
+import ShoeFalling from "./components/ShoeFalling";
 import { products } from "./data/products";
 
 export default function Home() {
@@ -39,6 +40,8 @@ export default function Home() {
       </section>
 
       <WhyChooseUs />
+
+      <ShoeFalling />
 
       {/* Simple Footer */}
       <footer className="py-12 border-t border-gray-100 bg-gray-50/50 text-center">

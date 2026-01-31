@@ -1,12 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ShoppingBag, Menu } from "lucide-react";
+import { useEffect, useState } from "react";
 
 export default function Navbar() {
+    const { scrollY } = useScroll();
+    const [animationOffset, setAnimationOffset] = useState(0);
+
+    useEffect(() => {
+        const updateOffset = () => {
+            const el = document.getElementById("shoe-animation");
+            if (el) {
+                setAnimationOffset(el.offsetTop);
+            }
+        };
+
+        // Initial check and on resize
+        updateOffset();
+        window.addEventListener("resize", updateOffset);
+        // Also check after a slight delay to ensure layout is done
+        setTimeout(updateOffset, 100);
+
+        return () => window.removeEventListener("resize", updateOffset);
+    }, []);
+
+    const opacity = useTransform(
+        scrollY,
+        [Math.max(0, animationOffset - 600), Math.max(0, animationOffset - 100)],
+        [1, 0]
+    );
+
+    // Also control pointer events to avoid clicking invisible navbar
+    const pointerEvents = useTransform(opacity, (v) => (v <= 0.1 ? "none" : "auto"));
+
     return (
         <motion.nav
+            style={{ opacity, pointerEvents }}
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
