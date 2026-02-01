@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: "export",
-  basePath: "/my-app",
+  basePath: "/shop-outfit12",
   images: {
     unoptimized: true,
     remotePatterns: [
