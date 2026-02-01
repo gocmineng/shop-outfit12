@@ -20,7 +20,7 @@ export default function ShoeFalling() {
         for (let i = 1; i <= frameCount; i++) {
             const img = new Image();
             // Format: 00001.png to 00108.png
-            const src = `/assets/Shoe_cloud_BgA/${i.toString().padStart(5, "0")}.png`;
+            const src = `/shop-outfit12/assets/Shoe_cloud_BgA/${i.toString().padStart(5, "0")}.png`;
             img.src = src;
             img.onload = () => {
                 loadedCount++;
